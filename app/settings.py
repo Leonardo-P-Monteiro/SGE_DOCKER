@@ -40,7 +40,8 @@ INSTALLED_APPS = [
 
     # MY APSS
     'brands',
-    
+    'category',
+    'supplier',
 ]
 
 MIDDLEWARE = [
