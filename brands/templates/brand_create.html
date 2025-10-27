@@ -4,7 +4,12 @@
 
 <div class='container mt-4'>
 
-    <h3 class='display-4'>Cadastro de Marca</h3>
+    
+    {% if update.name %}
+        <h3 class='display-6'>Edição de Marca</h3>
+    {% else %}
+        <h3 class='display-6'>Cadastro de Marca</h3>
+    {% endif %}
 
     <div class='card'>
 
@@ -16,7 +21,7 @@
 
                 {{ form.as_p }}
 
-                <button type="submit" class='btn btn-primary'>Salva Marca</button>
+                <button type="submit" class='btn btn-primary'>Salvar Marca</button>
 
                 <a href="{% url "brand_list" %}" class='btn btn-secondary '>
                 Cancelar
