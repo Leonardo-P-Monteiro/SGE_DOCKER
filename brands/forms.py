@@ -9,7 +9,7 @@ class BrandForm(forms.ModelForm):
         fields = ['name', 'description']
         widgets = {
             'name':forms.TextInput({'class':'form-control'}),
-            'description':forms.Textarea({'class':'form-control', 'rows':3}),
+            'description':forms.Textarea({'class':'form-control', 'rows':3,}),
         }
         labels = {
             'name':'Nome',

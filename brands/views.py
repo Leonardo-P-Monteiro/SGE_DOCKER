@@ -1,4 +1,5 @@
-from django.views.generic import ListView, CreateView, DetailView, UpdateView
+from django.views.generic import ListView, CreateView, DetailView, UpdateView, \
+    DeleteView
 from django.urls import reverse_lazy
 from . import models
 from . import forms
@@ -7,6 +8,7 @@ class BrandListView(ListView):
     model = models.Brand
     template_name = 'brands_list.html'
     context_object_name = 'brands'
+    paginate_by = 5
 
     def get_queryset(self):
         qs = super().get_queryset()
@@ -34,4 +36,8 @@ class BrandUpdate(UpdateView):
     form_class = forms.BrandForm
     success_url = reverse_lazy('brand_list')
     context_object_name = 'update'
-    
+
+class BrandDelete(DeleteView):
+    model = models.Brand
+    template_name = 'brand_delete.html'
+    success_url = reverse_lazy('brand_list')

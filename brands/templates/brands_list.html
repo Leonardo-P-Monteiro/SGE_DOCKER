@@ -46,10 +46,14 @@ SGE - Marcas
                         <a href="{% url "brand_update" brand.pk %}" class='btn btn-warning btn-small'>
                             <i class='bi bi-pencil-square'></i>
                         </a>
+                        <a href="{% url "brand_delete" brand.pk %}" class='btn btn-danger btn-small'>
+                            <i class='bi bi bi-trash'></i>
+                        </a>
                     </td>
                 </tr>
             {% endfor %}
         </tbody>
     </table>
 </div>
+{% include "components/_pagination.html" %}
 {% endblock content %}
