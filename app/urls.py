@@ -22,4 +22,6 @@ urlpatterns = [
 
     # BRANDS URLS
     path('', include('brands.urls')),
+    # CATEGORIES URLS
+    path('', include('category.urls')),
 ]
