@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+
+{% block title %}
+SGE - Saídas
+{% endblock title %}
+
+{% block content %}
+<div class='row mb-3'>
+    <div class='col-md-6'>
+        <form method="get" action="{% url "outflow_list" %}">
+            <div class='input-group'>
+                <input type="text" class="form-control" name='inflow' placeholder='Produto' value="{{request.GET.inflow}}">
+                <button type='submit' class="btn btn-primary">
+                    <i class='bi bi-search'></i>
+                </button>
+            </div>
+        </form>
+    </div>
+    <div class='col-md-6'>
+        <a href="{% url "outflow_create" %}" class='btn btn-success float-end'>
+            <i class='bi bi-plus'></i>
+            Cadastrar Saída
+        </a>
+    </div>
+</div>
+<div class="table-responsive">
+    <table class="table table-striped table-bordered">
+        <thead class="thead-dark">
+            <tr>
+                <th>ID</th>
+                <th>Produto</th>
+                <th>Quantidade</th>
+                <th>Data de Entrada</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for outflow in outflows %}
+                <tr>
+                    <td>{{outflow.pk}}</td>
+                    <td>{{outflow.product}}</td>
+                    <td>{{outflow.quantity}}</td>
+                    <td>{{outflow.created_at}}</td>
+                    <td> 
+                        <a href="{% url "outflow_detail" outflow.pk %}" class='btn btn-info btn-small'>
+                            <i class='bi bi-eye'></i>
+                        </a>
+                        {% comment %} <a href="{% url "inflow_update" inflow.pk %}" class='btn btn-warning btn-small'>
+                            <i class='bi bi-pencil-square'></i>
+                        </a>
+                        <a href="{% url "inflow_delete" inflow.pk %}" class='btn btn-danger btn-small'>
+                            <i class='bi bi bi-trash'></i>
+                        </a> {% endcomment %}
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% include "components/_pagination.html" %}
+{% endblock content %}
