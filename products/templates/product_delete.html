@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class='container mt-4'>
+
+    
+
+    <h3 class='display-6'>Exlusão de Produto</h3>
+
+
+    <div class='card'>
+
+        <div class='card-body'>
+
+            <p class='card-text'>Tem certeza que deseja Deletar o produto <strong>{{ object.name }}</strong>?</p>
+
+            <form method="post" class='form'>
+
+                {% csrf_token %}
+
+                <button type="submit" class='btn btn-danger'>Excluir Produto</button>
+
+                <a href="{% url "product_list" %}" class='btn btn-secondary '>
+                Cancelar
+                </a>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock content %}

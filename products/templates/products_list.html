@@ -1,15 +1,15 @@
 {% extends 'base.html' %}
 
 {% block title %}
-SGE - Fornecedores
+SGE - Produtos
 {% endblock title %}
 
 {% block content %}
 <div class='row mb-3'>
     <div class='col-md-6'>
-        <form method="get" action="{% url "suppliers_list" %}">
+        <form method="get" action="{% url "product_list" %}">
             <div class='input-group'>
-                <input type="text" class="form-control" name='name' placeholder='Nome' value="{{request.GET.name}}">
+                <input type="text" class="form-control" name='title' placeholder='Nome' value="{{request.GET.title}}">
                 <button type='submit' class="btn btn-primary">
                     <i class='bi bi-search'></i>
                 </button>
@@ -17,9 +17,9 @@ SGE - Fornecedores
         </form>
     </div>
     <div class='col-md-6'>
-        <a href="{% url "suppliers_create" %}" class='btn btn-success float-end'>
+        <a href="{% url "product_create" %}" class='btn btn-success float-end'>
             <i class='bi bi-plus'></i>
-            Cadastrar Fornecedor
+            Cadastrar Produto
         </a>
     </div>
 </div>
@@ -29,24 +29,31 @@ SGE - Fornecedores
             <tr>
                 <th>ID</th>
                 <th>Nome</th>
-                <th>Descrição</th>
+                <th>Categoria</th>
+                <th>Marca</th>
+                <th>Preço de custo</th>
+                <th>Preço de venda</th>
                 <th>Ações</th>
             </tr>
         </thead>
         <tbody>
-            {% for supplier in suppliers %}
+            {% for product in products %}
                 <tr>
-                    <td>{{supplier.pk}}</td>
-                    <td>{{supplier.name}}</td>
-                    <td>{{supplier.description}}</td>
+                    <td>{{product.pk}}</td>
+                    <td>{{product.title}}</td>
+                    <td>{{product.category}}</td>
+                    <td>{{product.brand}}</td>
+                    <td>R$ {{product.cost_price}}</td>
+                    <td>R$ {{product.selling_price}}</td>
+                    <td>{{product.quantity}}</td>
                     <td> 
-                        <a href="{% url "suppliers_detail" supplier.pk %}" class='btn btn-info btn-small'>
+                        <a href="{% url "product_detail" product.pk %}" class='btn btn-info btn-small'>
                             <i class='bi bi-eye'></i>
                         </a>
-                        <a href="{% url "suppliers_update" supplier.pk %}" class='btn btn-warning btn-small'>
+                        <a href="{% url "product_update" product.pk %}" class='btn btn-warning btn-small'>
                             <i class='bi bi-pencil-square'></i>
                         </a>
-                        <a href="{% url "suppliers_delete" supplier.pk %}" class='btn btn-danger btn-small'>
+                        <a href="{% url "product_delete" product.pk %}" class='btn btn-danger btn-small'>
                             <i class='bi bi bi-trash'></i>
                         </a>
                     </td>
