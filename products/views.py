@@ -15,9 +15,21 @@ class ProductListView(ListView):
     def get_queryset(self):
         qs = super().get_queryset()
         title = self.request.GET.get('title')
+        serie_number = self.request.GET.get('serie_number')
+        category = self.request.GET.get('category')
+        brand = self.request.GET.get('brand')
 
         if title:
             qs = qs.filter(title__icontains=title)
+        
+        if serie_number:
+            qs = qs.filter(serie_number__icontains=serie_number)
+        
+        if category:
+            qs = qs.filter(category__id = category)
+        
+        if brand:
+            qs = qs.filter(brand__id = brand)
 
         return qs
     
