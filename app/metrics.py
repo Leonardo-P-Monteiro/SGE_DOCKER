@@ -1,7 +1,8 @@
 from products.models import Product
 from outflows.models import Outflow
 from django.utils.formats import number_format
-from django.db.models import Sum
+from django.db.models import Sum, F
+from django.utils import timezone
 
 
 def get_product_metric():
@@ -41,3 +42,21 @@ def get_sales_metrics():
     }
 
     return sales_metrics
+
+def get_daily_sales_data():
+    today = timezone.now().date()
+    dates = [str(today - timezone.timedelta(days=i)) for i in range(6, -1, -1)]
+    values = list()
+
+    for date in dates:
+        sales_total = Outflow.objects.filter(
+            created_at__date = date
+        ).aggregate(
+            total_sales=Sum(F('quantity')*F('product__selling_price'))
+            )['total_sales'] or 0
+        values.append(float(sales_total))
+    
+    return dict(
+        dates=dates,
+        values=values
+    )
