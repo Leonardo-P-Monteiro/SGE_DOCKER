@@ -6,8 +6,9 @@ from . import forms
 from category.models import Category
 from brands.models import Brand
 from app.metrics import get_product_metric
+from django.contrib.auth.mixins import LoginRequiredMixin
 
-class ProductListView(ListView):
+class ProductListView(LoginRequiredMixin, ListView):
     model = models.Product
     template_name = 'products_list.html'
     context_object_name = 'products'
@@ -43,25 +44,25 @@ class ProductListView(ListView):
 
         return context
 
-class ProductCreate(CreateView):
+class ProductCreate(LoginRequiredMixin, CreateView):
     model = models.Product
     template_name = 'product_create.html'
     form_class = forms.ProductForm
     success_url = reverse_lazy('product_list')
 
-class ProductDetail(DetailView):
+class ProductDetail(LoginRequiredMixin, DetailView):
     model = models.Product
     template_name = 'product_details.html'
     context_object_name = 'product'
 
-class ProductUpdate(UpdateView):
+class ProductUpdate(LoginRequiredMixin, UpdateView):
     model = models.Product
     template_name = 'product_create.html'
     form_class = forms.ProductForm
     success_url = reverse_lazy('product_list')
     context_object_name = 'update'
 
-class ProductDelete(DeleteView):
+class ProductDelete(LoginRequiredMixin, DeleteView):
     model = models.Product
     template_name = 'product_delete.html'
     success_url = reverse_lazy('product_list')
