@@ -6,13 +6,14 @@ from . import forms
 from category.models import Category
 from brands.models import Brand
 from app.metrics import get_product_metric
-from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin
 
-class ProductListView(LoginRequiredMixin, ListView):
+class ProductListView(LoginRequiredMixin, PermissionRequiredMixin, ListView):
     model = models.Product
     template_name = 'products_list.html'
     context_object_name = 'products'
     paginate_by = 5
+    permission_required = 'products.view_product'
 
     def get_queryset(self):
         qs = super().get_queryset()
@@ -44,25 +45,29 @@ class ProductListView(LoginRequiredMixin, ListView):
 
         return context
 
-class ProductCreate(LoginRequiredMixin, CreateView):
+class ProductCreate(LoginRequiredMixin, PermissionRequiredMixin, CreateView):
     model = models.Product
     template_name = 'product_create.html'
     form_class = forms.ProductForm
     success_url = reverse_lazy('product_list')
+    permission_required = 'products.create_product'
 
-class ProductDetail(LoginRequiredMixin, DetailView):
+class ProductDetail(LoginRequiredMixin, PermissionRequiredMixin, DetailView):
     model = models.Product
     template_name = 'product_details.html'
     context_object_name = 'product'
+    permission_required = 'products.view_product'
 
-class ProductUpdate(LoginRequiredMixin, UpdateView):
+class ProductUpdate(LoginRequiredMixin, PermissionRequiredMixin, UpdateView):
     model = models.Product
     template_name = 'product_create.html'
     form_class = forms.ProductForm
     success_url = reverse_lazy('product_list')
     context_object_name = 'update'
+    permission_required = 'products.change_product'
 
-class ProductDelete(LoginRequiredMixin, DeleteView):
+class ProductDelete(LoginRequiredMixin, PermissionRequiredMixin, DeleteView):
     model = models.Product
     template_name = 'product_delete.html'
     success_url = reverse_lazy('product_list')
+    permission_required = 'products.delete_product'
