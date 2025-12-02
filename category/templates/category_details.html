@@ -13,9 +13,11 @@
         </div>
 
     </div>
+    {% if perms.category.change_category %}
     <a href="{% url "category_update" category.pk %}" class='btn btn-primary mt-2'>
     Editar
     </a>
+    {% endif %}
     <a href="{% url "category_list" %}" class='btn btn-primary mt-2'>
     Voltar
     </a>

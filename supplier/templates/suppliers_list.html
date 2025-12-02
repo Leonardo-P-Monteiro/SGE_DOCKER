@@ -16,12 +16,14 @@ SGE - Fornecedores
             </div>
         </form>
     </div>
+    {% if perms.supplier.view_supplier %}
     <div class='col-md-6'>
         <a href="{% url "suppliers_create" %}" class='btn btn-success float-end'>
             <i class='bi bi-plus'></i>
             Cadastrar Fornecedor
         </a>
     </div>
+    {% endif %}
 </div>
 <div class="table-responsive">
     <table class="table table-striped table-bordered">
@@ -40,15 +42,21 @@ SGE - Fornecedores
                     <td>{{supplier.name}}</td>
                     <td>{{supplier.description}}</td>
                     <td> 
+                        {% if perms.supplier.view_supplier %}
                         <a href="{% url "suppliers_detail" supplier.pk %}" class='btn btn-info btn-small'>
                             <i class='bi bi-eye'></i>
                         </a>
+                        {% endif %}
+                        {% if perms.supplier.change_supplier %}
                         <a href="{% url "suppliers_update" supplier.pk %}" class='btn btn-warning btn-small'>
                             <i class='bi bi-pencil-square'></i>
                         </a>
+                        {% endif %}
+                        {% if perms.supplier.delete_supplier %}
                         <a href="{% url "suppliers_delete" supplier.pk %}" class='btn btn-danger btn-small'>
                             <i class='bi bi bi-trash'></i>
                         </a>
+                        {% endif %}
                     </td>
                 </tr>
             {% endfor %}

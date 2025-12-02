@@ -37,9 +37,11 @@
         </div>
 
     </div>
+    {% if perms.products.change_product %}
     <a href="{% url "product_update" product.pk %}" class='btn btn-primary mt-2'>
     Editar
     </a>
+    {% endif %}
     <a href="{% url "product_list" %}" class='btn btn-primary mt-2'>
     Voltar
     </a>

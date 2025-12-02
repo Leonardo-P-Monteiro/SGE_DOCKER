@@ -22,12 +22,14 @@ SGE - Produtos
             </div>
         </form>
     </div>
+    {% if perms.products.add_product %}
     <div class='col-md-6'>
         <a href="{% url "product_create" %}" class='btn btn-success float-end'>
             <i class='bi bi-plus'></i>
             Cadastrar Produto
         </a>
     </div>
+    {% endif %}
 </div>
 
 <div class='row mb-3'>
@@ -79,15 +81,21 @@ SGE - Produtos
                     <td>R$ {{product.selling_price}}</td>
                     <td>{{product.quantity}}</td>
                     <td> 
+                        {% if perms.products.view_product %}
                         <a href="{% url "product_detail" product.pk %}" class='btn btn-info btn-small'>
                             <i class='bi bi-eye'></i>
                         </a>
+                        {% endif %}
+                        {% if perms.products.change_product %}
                         <a href="{% url "product_update" product.pk %}" class='btn btn-warning btn-small'>
                             <i class='bi bi-pencil-square'></i>
                         </a>
+                        {% endif %}
+                        {% if perms.products.delete_product %}
                         <a href="{% url "product_delete" product.pk %}" class='btn btn-danger btn-small'>
                             <i class='bi bi bi-trash'></i>
                         </a>
+                        {% endif %}
                     </td>
                 </tr>
             {% endfor %}

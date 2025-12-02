@@ -13,9 +13,11 @@
         </div>
 
     </div>
+    {% if perms.brands.change_brand %}
     <a href="{% url "brand_update" brand.pk %}" class='btn btn-primary mt-2'>
     Editar
     </a>
+    {% endif %}
     <a href="{% url "brand_list" %}" class='btn btn-primary mt-2'>
     Voltar
     </a>

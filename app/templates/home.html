@@ -7,10 +7,13 @@
 {% block content %}
     
     {% include "components/_products_metrics.html" %}
+    {% if user.is_staff %}
     {% include "components/_sales_metrics.html" %}
+    {% endif %}
     
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.5.0/chart.umd.min.js"></script>
 
+    {% if user.is_staff %}
     <div class='row mt-4 justify-content-center'>
         <div class='col-md-6 text-center'>
             <h5>Valor de Vendas (Últimos 7 dias)</h5>
@@ -77,6 +80,7 @@
             });
         </script>
     </div>
+    {% endif %}
 
     <!-- GRAPHS BLOCKS 2 -->
      <div class='row mt-4 justify-content-center'>
