@@ -7,6 +7,7 @@
 {% block content %}
     
     {% include "components/_products_metrics.html" %}
+    
     {% if user.is_staff %}
     {% include "components/_sales_metrics.html" %}
     {% endif %}

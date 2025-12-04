@@ -38,6 +38,10 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
+    # THIRD APPS
+    'rest_framework',
+    'rest_framework_simplejwt',
+
     # MY APSS
     'brands',
     'category',
