@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 """
 
 from pathlib import Path
+from datetime import timedelta
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -41,14 +42,16 @@ INSTALLED_APPS = [
     # THIRD APPS
     'rest_framework',
     'rest_framework_simplejwt',
+    'rest_framework_simplejwt.token_blacklist',
 
     # MY APSS
+    'authentication',
     'brands',
     'category',
-    'supplier',
-    'products',
     'inflows',
     'outflows',
+    'products',
+    'supplier',
 ]
 
 MIDDLEWARE = [
@@ -139,3 +142,26 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 LOGIN_URL = 'login'
 LOGIN_REDIRECT_URL = 'home'
 LOGOUT_REDIRECT_URL = 'login'
+
+## SIMPLE JWT CONFIG
+
+SIMPLE_JWT = {
+    'ACCESS_TOKEN_LIFETIME': timedelta(hours=3), # PRAZO DEVE SER 5 MINUTOS
+    'REFRESH_TOKEN_LIFETIME': timedelta(days=360), # PRAZO DEVE SER 1 DIA
+    'ROTATE_REFRESH_TOKENS': True,
+    'BLACKLIST_AFTER_ROTATION': True,
+}
+
+REST_FRAMEWORK = {
+    # Define a classe de autenticação padrão para todas as views da API.
+    # Quando uma requisição chega, o DRF usará esta classe para tentar autenticar o usuário
+    # com base no token JWT presente no cabeçalho da requisição.
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    ),
+    
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.IsAuthenticated',
+        'rest_framework.permissions.DjangoModelPermissions',
+    ]
+}

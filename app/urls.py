@@ -39,4 +39,7 @@ urlpatterns = [
     path('', include('outflows.urls')),
     # PRODUCTS URLS
     path('', include('products.urls')),
+    # AUTHENTICATION URLS
+    path('api/v1/', include('authentication.urls')),
+
 ]
