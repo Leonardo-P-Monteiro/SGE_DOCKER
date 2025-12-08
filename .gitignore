@@ -1,6 +1,9 @@
 # My sets
 *.yml
 _off/
+__pycache__
+media
+.env
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

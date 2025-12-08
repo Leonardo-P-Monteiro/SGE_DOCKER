@@ -1,0 +1,11 @@
+asgiref==3.9.2
+Django==5.2.7
+django-stubs==5.2.5
+django-stubs-ext==5.2.5
+djangorestframework==3.16.1
+djangorestframework_simplejwt==5.5.1
+PyJWT==2.10.1
+sqlparse==0.5.3
+types-PyYAML==6.0.12.20250915
+typing_extensions==4.15.0
+tzdata==2025.2
