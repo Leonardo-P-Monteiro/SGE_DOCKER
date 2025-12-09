@@ -5,6 +5,7 @@ __pycache__
 media
 .env
 
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
