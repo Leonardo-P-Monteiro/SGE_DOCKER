@@ -6,4 +6,4 @@ class OutflowsConfig(AppConfig):
     name = 'outflows'
     
     def ready(self):
-        from . import signals
+        import outflows.signals

@@ -18,3 +18,8 @@ class CallMeBot:
         # print(__response.text)
         
         return __response
+
+if __name__ == '__main__':
+    c = CallMeBot()
+    c.send_message('Testando')
+    print('foi')

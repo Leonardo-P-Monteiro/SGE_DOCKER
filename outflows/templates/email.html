@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nova Saída no SGE!</title>
+    <style>
+        /* Estilos globais para compatibilidade em e-mail */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f3f4f6; /* Fundo suave */
+            margin: 0;
+            padding: 0;
+        }
+        .email-wrapper {
+            max-width: 600px;
+            margin: 30px auto;
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            border: 1px solid #e5e7eb;
+        }
+        .header {
+            background-color: #10b981; /* Verde esmeralda para sucesso */
+            color: #ffffff;
+            padding: 20px;
+            text-align: center;
+        }
+        .content-body {
+            padding: 25px 35px;
+            color: #374151; /* Texto escuro */
+        }
+        .data-point {
+            margin: 15px 0;
+            font-size: 16px;
+            line-height: 1.5;
+            padding-bottom: 5px;
+            border-bottom: 1px dashed #e5e7eb;
+        }
+        .data-point b {
+            color: #1f2937; /* Valor em destaque */
+        }
+        .profit-highlight {
+            font-size: 18px;
+            font-weight: bold;
+            color: #059669; /* Verde mais forte para lucro */
+            background-color: #d1fae5; /* Fundo verde claro */
+            padding: 10px;
+            border-radius: 8px;
+            display: block;
+            margin-top: 20px;
+            text-align: center;
+        }
+        .footer {
+            background-color: #e5e7eb;
+            color: #6b7280;
+            padding: 20px 35px;
+            text-align: center;
+            font-size: 12px;
+            border-top: 1px solid #d1d5db;
+        }
+    </style>
+</head>
+<body>
+    <div class="email-wrapper">
+        <div class="header">
+            <h2 style="margin: 0; font-size: 24px;">✅ Nova Saída Registrada no SGE</h2>
+        </div>
+
+        <div class="content-body">
+            <p style="font-size: 16px; margin-top: 0;">Olá,</p>
+            <p style="font-size: 16px;">
+                Confirmamos o registro de uma nova saída de estoque com os seguintes detalhes:
+            </p>
+
+            <div class="data-point">
+                Produto: <b>{{ product }}</b>
+            </div>
+            
+            <div class="data-point">
+                Quantidade: <b>{{ quantity }} unidade(s)</b>
+            </div>
+            
+            <div class="data-point" style="color: #1d4ed8; border-bottom: 1px solid #bfdbfe;">
+                Valor da Venda: <b style="font-size: 18px;">R$ {{ total_value }}</b>
+            </div>
+
+            <span class="profit-highlight">
+                💰 Lucro com a Venda: R$ {{ profit_value }}
+            </span>
+            
+            <br style="line-height: 20px;">
+        </div>
+
+        <div class="footer">
+            Atenciosamente,<br>
+            Sistema de Gestão de Estoque (SGE)
+        </div>
+    </div>
+</body>
+</html>
