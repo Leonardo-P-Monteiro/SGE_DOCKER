@@ -67,4 +67,3 @@ def send_outflow_event(sender, instance:Outflow, created, **kwargs):
     except Exception as e:
         print('ERRO: Ocorreu um erro no signal do envio de mensagem para' \
         f'o whatsapp e email do model outflow. Erro: {type(e).__name__}: {e}')
-        print(f'ERRO: ')
