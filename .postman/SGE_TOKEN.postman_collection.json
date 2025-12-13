@@ -1,0 +1,120 @@
+{
+	"info": {
+		"_postman_id": "91ecadb0-d3f3-4514-9613-c258c9ba35fc",
+		"name": "SGE_TOKEN",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "46367328",
+		"_collection_link": "https://leonardopmonteiro.postman.co/workspace/SGE_COLLECTION~dec55e0e-ad84-45b9-b944-88adc60cb900/collection/46367328-91ecadb0-d3f3-4514-9613-c258c9ba35fc?action=share&source=collection_link&creator=46367328"
+	},
+	"item": [
+		{
+			"name": "OBTAIN_PAIR_TOKEN",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\":\"user3\",\r\n    \"password\":\"@123456789\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://sgeleepcode.pythonanywhere.com/api/v1/authentication/token/",
+					"protocol": "https",
+					"host": [
+						"sgeleepcode",
+						"pythonanywhere",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"authentication",
+						"token",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "VERIFY_TOKEN",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzY1MjMyMTA4LCJpYXQiOjE3NjUyMjEzMDgsImp0aSI6ImQzODMzM2ZjMWE2MzQ1NzY5YTljNzliZjYyNTA4ODQ5IiwidXNlcl9pZCI6IjEifQ.iHdghfAOib2UArNN2PpSmS2idgd1QnBYyEkHVyg1N2o\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://sgeleepcode.pythonanywhere.com/api/v1/token/verify/",
+					"protocol": "https",
+					"host": [
+						"sgeleepcode",
+						"pythonanywhere",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"token",
+						"verify",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "REFRESH_TOKEN",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTc5NjMyNTMwOCwiaWF0IjoxNzY1MjIxMzA4LCJqdGkiOiI3Y2RjOTFhYjdhYjg0Mjk3OTE4NDlhZGZjYzVhMTUzYSIsInVzZXJfaWQiOiIxIn0.10xkeNTR3Ndfj3aozI9EQhaxUzGl_IG-RH4RdgbpVyc",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"refresh\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTc2NTIzNzgyNywiaWF0IjoxNzY1MjE5ODI3LCJqdGkiOiJkNmZiODJmNzcxN2M0MTQ4YmJkYjhhNWZiZTliOWIyNyIsInVzZXJfaWQiOiIxIn0.4grO52SC5Wx9bea3eRS0TEf7tQv6SSyNhFGyY-DelTE\"\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://sgeleepcode.pythonanywhere.com/api/v1/token/refresh/",
+					"protocol": "https",
+					"host": [
+						"sgeleepcode",
+						"pythonanywhere",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"token",
+						"refresh",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

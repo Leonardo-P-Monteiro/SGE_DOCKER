@@ -1,0 +1,89 @@
+{
+	"info": {
+		"_postman_id": "fc4baec6-3775-404e-b52d-1f74e28cc21a",
+		"name": "PRODUCT_COLLECTION",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "46367328",
+		"_collection_link": "https://leonardopmonteiro.postman.co/workspace/SGE_COLLECTION~dec55e0e-ad84-45b9-b944-88adc60cb900/collection/46367328-fc4baec6-3775-404e-b52d-1f74e28cc21a?action=share&source=collection_link&creator=46367328"
+	},
+	"item": [
+		{
+			"name": "LIST_CREATE",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzY1NjY0NTc4LCJpYXQiOjE3NjU2NTM3NzgsImp0aSI6ImE3OTdiNmMzY2Y0OTQyNDViZmRmOWRkZjk3NDI0NDJlIiwidXNlcl9pZCI6IjQifQ.DItm0PfhQfoIH3vrTbpoADc4BqezC0zb02NOdaTZh2o",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"title\": \"Produto API 2\",\r\n        \"description\": \"Produto teste feito na API 2\",\r\n        \"serie_number\": \"4687-we-5487\",\r\n        \"cost_price\": \"3.24\",\r\n        \"selling_price\": \"14.71\",\r\n        \"quantity\": 37,\r\n        \"category\": 2,\r\n        \"brand\": 23\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://sgeleepcode.pythonanywhere.com/api/v1/products/",
+					"protocol": "https",
+					"host": [
+						"sgeleepcode",
+						"pythonanywhere",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"products",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DETAIL_CREATE_DELETE",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzY1NjY0NTc4LCJpYXQiOjE3NjU2NTM3NzgsImp0aSI6ImE3OTdiNmMzY2Y0OTQyNDViZmRmOWRkZjk3NDI0NDJlIiwidXNlcl9pZCI6IjQifQ.DItm0PfhQfoIH3vrTbpoADc4BqezC0zb02NOdaTZh2o",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://sgeleepcode.pythonanywhere.com/api/v1/products/",
+					"protocol": "https",
+					"host": [
+						"sgeleepcode",
+						"pythonanywhere",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"products",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

@@ -1,0 +1,77 @@
+{
+	"info": {
+		"_postman_id": "ca397665-a099-4d4f-8489-1e31e9e50a33",
+		"name": "SUPPLIER_COLLECTION",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "46367328",
+		"_collection_link": "https://leonardopmonteiro.postman.co/workspace/SGE_COLLECTION~dec55e0e-ad84-45b9-b944-88adc60cb900/collection/46367328-ca397665-a099-4d4f-8489-1e31e9e50a33?action=share&source=collection_link&creator=46367328"
+	},
+	"item": [
+		{
+			"name": "LIST_CREATE",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzY1NjY0NTc4LCJpYXQiOjE3NjU2NTM3NzgsImp0aSI6ImE3OTdiNmMzY2Y0OTQyNDViZmRmOWRkZjk3NDI0NDJlIiwidXNlcl9pZCI6IjQifQ.DItm0PfhQfoIH3vrTbpoADc4BqezC0zb02NOdaTZh2o",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://sgeleepcode.pythonanywhere.com/api/v1/suppliers/",
+					"protocol": "https",
+					"host": [
+						"sgeleepcode",
+						"pythonanywhere",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"suppliers",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DETAIL_CREATE_DELETE",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzY1NjY0NTc4LCJpYXQiOjE3NjU2NTM3NzgsImp0aSI6ImE3OTdiNmMzY2Y0OTQyNDViZmRmOWRkZjk3NDI0NDJlIiwidXNlcl9pZCI6IjQifQ.DItm0PfhQfoIH3vrTbpoADc4BqezC0zb02NOdaTZh2o",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://sgeleepcode.pythonanywhere.com/api/v1/suppliers/6",
+					"protocol": "https",
+					"host": [
+						"sgeleepcode",
+						"pythonanywhere",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"suppliers",
+						"6"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

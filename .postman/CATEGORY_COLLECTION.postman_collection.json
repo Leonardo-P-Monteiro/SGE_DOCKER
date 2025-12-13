@@ -1,0 +1,89 @@
+{
+	"info": {
+		"_postman_id": "ea9b0a13-49d8-49e9-8dee-9832404e2cbc",
+		"name": "CATEGORY_COLLECTION",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "46367328",
+		"_collection_link": "https://leonardopmonteiro.postman.co/workspace/SGE_COLLECTION~dec55e0e-ad84-45b9-b944-88adc60cb900/collection/46367328-ea9b0a13-49d8-49e9-8dee-9832404e2cbc?action=share&source=collection_link&creator=46367328"
+	},
+	"item": [
+		{
+			"name": "LIST_CREATE",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzY1NjY0MjM0LCJpYXQiOjE3NjU2NTM0MzQsImp0aSI6IjRmNDQ0MmI0N2EyZDQ0ZDM4ODg5ODc5MjRiMmU4ZGUwIiwidXNlcl9pZCI6IjQifQ.HcAham_2q0C2bOPXNOzxfCx2cr-LU48o631M9PNGpLo",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Categoria Teste API 2\",\r\n    \"description\": \"Categoria de teste.\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://sgeleepcode.pythonanywhere.com/api/v1/categories/",
+					"protocol": "https",
+					"host": [
+						"sgeleepcode",
+						"pythonanywhere",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"categories",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DETAIL_UPDATE_DELETE",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzY1NjY0MjM0LCJpYXQiOjE3NjU2NTM0MzQsImp0aSI6IjRmNDQ0MmI0N2EyZDQ0ZDM4ODg5ODc5MjRiMmU4ZGUwIiwidXNlcl9pZCI6IjQifQ.HcAham_2q0C2bOPXNOzxfCx2cr-LU48o631M9PNGpLo",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://sgeleepcode.pythonanywhere.com/api/v1/categories/3",
+					"protocol": "https",
+					"host": [
+						"sgeleepcode",
+						"pythonanywhere",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"categories",
+						"3"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
