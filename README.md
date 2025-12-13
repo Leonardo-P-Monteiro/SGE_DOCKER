@@ -35,6 +35,8 @@ Veja `requirements.txt` para a lista completa de dependências.
 
 🔐Senha: admin
 
+https://sgeleepcode.pythonanywhere.com/login/?next=/
+
 ## Sistema de API
 As APIs seguem o padrão REST e estão expostas sob o prefixo `api/v1/` para as principais entidades. Entre os endpoints mais relevantes:
 
