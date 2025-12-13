@@ -107,14 +107,23 @@ No `app/settings.py`, já existe configuração para leitura via `python-decoupl
 
 Exemplo de GIF:
 ![Tela de Login](screenshots\screen-0.png)
+
 ![Tela Home](screenshots\screen-1.png)
+
 ![Tela Fornecedores](screenshots\screen-2.png)
+
 ![Tela de Cadastros](screenshots\screen-3.png)
+
 ![Tela Marcas](screenshots\screen-4.png)
+
 ![Tela Produtos](screenshots\screen-5.png)
+
 ![Tela Entradas](screenshots\screen-6.png)
+
 ![Tela Saídas](screenshots\screen-7.png)
+
 ![Tela E-mail](screenshots\screen-8.png)
+
 ![Tela Whatsapp](screenshots\screen-9.jpg)
 
 
