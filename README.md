@@ -127,8 +127,6 @@ Exemplo de GIF:
 ![Tela Whatsapp](screenshots/screen-9.jpg)
 
 
-Você pode atualizar essa seção com as imagens conforme desejar; este README apenas fornece a estrutura e convenções de nomenclatura.
-
 ## Instalação e execução
 1. Criar e ativar ambiente virtual.
 2. Instalar dependências:
