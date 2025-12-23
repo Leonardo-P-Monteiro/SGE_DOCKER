@@ -92,8 +92,12 @@ WSGI_APPLICATION = 'app.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'sge_db',      # Nome definido no POSTGRES_DB
+        'USER': 'sge_db',   # Nome definido no POSTGRES_USER
+        'PASSWORD': 'sge_db', # Nome definido no POSTGRES_PASSWORD
+        'HOST': 'sge_db',                 # NOME DO SERVIÇO no docker-compose
+        'PORT': '5432',               # Porta padrão do Postgres
     }
 }
 
