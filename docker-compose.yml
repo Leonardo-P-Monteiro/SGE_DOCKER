@@ -1,0 +1,81 @@
+# docker-compose.yml
+
+# A chave services inicia a definição dos nossos "músicos"
+services:
+  
+  # --- SERVIÇO 1: BANCO DE DADOS (PostgreSQL) ---
+  sge_db:
+    # Usa uma imagem oficial leve do Docker Hub.
+    image: postgres:15-alpine
+    
+    # Define variáveis de ambiente necessárias para o Postgres iniciar
+    environment:
+      - POSTGRES_DB=sge_db
+      - POSTGRES_USER=sge_db
+      - POSTGRES_PASSWORD=sge_db
+    
+    # Persistência: Mapeia o volume nomeado 'postgres_data'
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
+
+    networks:
+      - sge_network
+    
+    # --- HEALTHCHECK (NOVIDADE) ---
+    # O Docker verifica periodicamente se o Postgres está pronto para aceitar conexões.
+    healthcheck:
+      # CMD-SHELL roda o comando dentro do container. pg_isready é nativo do Postgres.
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 5s   # Testa a cada 5 segundos
+      timeout: 5s    # Se demorar mais de 5s para responder, falha
+      retries: 5     # Tenta 5 vezes antes de desistir
+    
+    restart: on-failure:5
+
+  # --- SERVIÇO 2: APLICAÇÃO WEB (Django) ---
+  sge_docker:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    
+    command: sh -c "python manage.py migrate && python manage.py runserver 0.0.0.0:8000"
+    
+    volumes:
+      - .:/SGE_DOCKER
+    
+    ports:
+      - "8000:8000"
+    
+    environment:
+      - DEBUG=1
+      - SECRET_KEY=sua_chave_secreta_dev
+      - DB_ENGINE=django.db.backends.postgresql
+      - DB_NAME=sge
+      - DB_USER=sge_db
+      - DB_PASSWORD=sge_db
+      - DB_HOST=sge_db
+      - DB_PORT=5432
+    
+    restart: on-failure:5
+
+    env_file:
+      - .env
+    
+    networks:
+      - sge_network
+
+    # --- ORQUESTRAÇÃO ROBUSTA ---
+    # Agora o Django espera o Healthcheck do banco dar OK (healthy)
+    depends_on:
+      sge_db:
+        condition: service_healthy
+
+# --- DEFINIÇÃO DE VOLUMES ---
+volumes:
+  postgres_data:
+
+
+# --- DEFINIÇÃO DE REDES ---
+networks:
+  sge_network:
+    driver: bridge
