@@ -23,4 +23,6 @@ RUN python manage.py migrate
 # ORIENTANDO QUAL PORTA ESTARÁ APTA A RECER CONEXÕES NO CONTINER
 EXPOSE 8000
 
-CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
+# Esse comando "CMD" se não estivesse comentado ele iria ser sobrescrito pelo
+# command no docker-compose.
+# CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
