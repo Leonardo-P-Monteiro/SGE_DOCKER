@@ -24,6 +24,7 @@ COPY . .
 RUN pip install --upgrade pip
 RUN pip install -r requirements.txt
 # RUN python manage.py migrate
+COPY entrypoint.sh /entrypoint.sh
 # Dá permissão de execução ao script (CRÍTICO para evitar "permission denied")
 RUN chmod +x /entrypoint.sh
 
