@@ -10,9 +10,9 @@ services:
     
     # Define variáveis de ambiente necessárias para o Postgres iniciar
     environment:
-      # - POSTGRES_DB=sge_db
-      # - POSTGRES_USER=sge_db
-      # - POSTGRES_PASSWORD=sge_db
+      - POSTGRES_DB=sge_db
+      - POSTGRES_USER=sge_db
+      - POSTGRES_PASSWORD=sge_db
     
     # Persistência: Mapeia o volume nomeado 'postgres_data'
     volumes:
@@ -47,14 +47,14 @@ services:
       - "8000:8000"
     
     environment:
-      # - DEBUG=1
-      # - SECRET_KEY=sua_chave_secreta_dev
-      # - DB_ENGINE=django.db.backends.postgresql
-      # - DB_NAME=sge
-      # - DB_USER=sge_db
-      # - DB_PASSWORD=sge_db
-      # - DB_HOST=sge_db
-      # - DB_PORT=5432
+      - DEBUG=1
+      - SECRET_KEY=sua_chave_secreta_dev
+      - DB_ENGINE=django.db.backends.postgresql
+      - DB_NAME=sge
+      - DB_USER=sge_db
+      - DB_PASSWORD=sge_db
+      - DB_HOST=sge_db
+      - DB_PORT=5432
     
     restart: on-failure:5
 
