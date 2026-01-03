@@ -17,7 +17,7 @@ COPY . .
 # RODANDO UM COMANDO NO CONTAINER
 RUN pip install --upgrade pip
 RUN pip install -r requirements.txt
-# RUN python manage.py migrate
+RUN python manage.py migrate
 
 
 # ORIENTANDO QUAL PORTA ESTARÁ APTA A RECER CONEXÕES NO CONTINER
